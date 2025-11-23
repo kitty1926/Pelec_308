@@ -1,0 +1,123 @@
+{% block content %}
+<div class="add-student-container">
+    <div class="add-student-box">
+        <h2>Edit Student Schedules/h2>
+        
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="save-btn">Update</button>
+        </form>
+
+        <a href="{% url 'schedules' %}" class="back-link"> Cancel</a>
+    </div>
+</div>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #e8eb56d7;
+        margin: 0;
+        padding: 20px;
+    }
+    
+    .add-student-container {
+        max-width: 700px;
+        margin: 40px auto;
+    }
+    
+    .add-student-box {
+        background: white;
+        border-radius: 10px;
+        padding: 40px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    h2 {
+        color: #000000ff;
+        text-align: left;
+        margin-bottom: 40px;
+        font-size: 28px;
+       
+        padding-bottom: 15px;
+    }
+    
+    form p {
+        margin-bottom: 20px;
+    }
+    
+    form label {
+        display: block;
+        color: #000000ff;
+        font-weight: bold;
+        margin-bottom: 8px;
+        font-size: 16px;
+    }
+    
+    form input[type="text"],
+    form input[type="number"],
+    form input[type="email"],
+    form select,
+    form textarea {
+        width: 100%;
+        padding: 12px;
+       
+        font-size: 16px;
+        box-sizing: border-box;
+    }
+    
+    form input:focus,
+    form select:focus,
+    form textarea:focus {
+        outline: none;
+        border-color: #3498db;
+    }
+    
+    .save-btn {
+        width: 100%;
+        padding: 14px;
+        background-color: #13cf23ea;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+    
+    .save-btn:hover {
+        background-color: #10e96aff;
+    }
+    
+    .back-link {
+        display: block;
+        text-align: center;
+        margin-top: 20px;
+        color: #000000ff;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 16px;
+    }
+    
+    .back-link:hover {
+        color: #f7e600ff;
+        text-decoration: underline;
+    }
+    
+    .errorlist {
+        list-style: none;
+        padding: 0;
+        margin: 10px 0;
+    }
+    
+    .errorlist li {
+        color: #e74c3c;
+        background: #fadbd8;
+        padding: 10px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        font-size: 14px;
+    }
+</style>
+{% endblock %}

@@ -1,0 +1,143 @@
+{% block content %}
+<div class="register-container">
+    <div class="register-box">
+        <h2>Register</h2>
+        
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="register-btn">Register</button>
+        </form>
+
+        <p class="login-link">Already have an account? <a href="{% url 'login' %}">Login here</a></p>
+    </div>
+</div>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #d7e42aff 0%, #bfc96aff 100%);
+        min-height: 50vh;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .register-container {
+        width: 75%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 30px;
+        box-shadow: 0px 4px 10px rgba(163, 52, 52, 0.3);
+    }
+    
+    .register-box {
+        background: white;
+        padding: 40px;
+        width: 100%;
+        max-width: 450px;
+        box-shadow: 0 10px 25px rgba(255, 187, 0, 0.56);
+        max-height: 100vh;
+        overflow-y: auto;
+    }
+    
+    h2 {
+        color: #020101ff;
+        text-align: center;
+        margin-bottom: 50px;
+        font-size: 40px;
+    }
+    
+    form p {
+        margin-bottom: 40px;
+    }
+    
+    form label {
+        display: block;
+        color: #000000ff;
+        font-weight: bold;
+        margin-bottom: 8px;
+    }
+    
+    form input[type="text"],
+    form input[type="password"],
+    form input[type="email"] {
+        width: 100%;
+        padding: 12px;
+
+        font-size: 14px;
+        box-sizing: border-box;
+        transition: border-color 0.3s;
+    }
+    
+    /* form input[type="text"]:focus,
+    form input[type="password"]:focus,
+    form input[type="email"]:focus {
+        outline: none;
+        border-color: #eff159ff;
+    }
+     */
+    .register-btn {
+        width: 100%;
+        padding: 14px;
+        background: linear-gradient(135deg, #cbd81cff 0%, #a8c234ff 100%);
+        color: white;
+        border: 2px solid #f0c60aff;
+        border-radius: 8px;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: transform 0.2s;
+        margin-top: 10px;
+    }
+    
+    .register-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(141, 134, 33, 0.57);
+    }
+    
+    .login-link {
+        text-align: center;
+        margin-top: 20px;
+        color: #a09034ff;
+    }
+    
+    .login-link a {
+        color: #d6c41dff;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    
+    .login-link a:hover {
+        text-decoration: underline;
+    }
+    
+    .errorlist {
+        list-style: none;
+        padding: 0;
+        margin: 10px 0;
+    }
+    
+    .errorlist li {
+        color: #e74c3c;
+        background: #fadbd8;
+        padding: 10px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        font-size: 14px;
+    }
+    
+    form ul.errorlist {
+        margin-top: 5px;
+    }
+
+    .helptext {
+        display: block;
+        font-size: 13px;
+        color: #000000ff;
+        margin-top: 5px;
+    }
+</style>
+{% endblock %}

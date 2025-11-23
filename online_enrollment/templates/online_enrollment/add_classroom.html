@@ -1,0 +1,133 @@
+{% block content %}
+<div class="add-container">
+    <div class="add-box">
+        <h2>Add Student Classroom</h2>
+        
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="button-group">
+                <button type="submit" class="save-btn">Add</button>
+                <a href="{% url 'dashboard' %}" class="cancel-btn">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #e8eb56d7;
+        margin: 0;
+        padding: 20px;
+    }
+    
+    .add-container {
+        max-width: 700px;
+        margin: 40px auto;
+    }
+    
+    .add-box {
+        background: white;
+        border-radius: 10px;
+        padding: 40px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    h2 {
+        color: #000000ff;
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 28px;
+        padding-bottom: 15px;
+    }
+    
+    form p {
+        margin-bottom: 20px;
+    }
+    
+    form label {
+        display: block;
+        color: #000000ff;
+        font-weight: bold;
+        margin-bottom: 8px;
+        font-size: 16px;
+    }
+    
+    form input[type="text"],
+    form input[type="number"],
+    form input[type="email"],
+    form input[type="date"],
+    form select,
+    form textarea {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+        box-sizing: border-box;
+    }
+    
+    form input:focus,
+    form select:focus,
+    form textarea:focus {
+        outline: none;
+        border-color: #3498db;
+    }
+    
+    .button-group {
+        display: flex;
+        gap: 15px;
+        margin-top: 25px;
+    }
+    
+    .save-btn {
+        flex: 1;
+        padding: 14px;
+        background-color: #13cf23ea;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    
+    .save-btn:hover {
+        background-color: #10e96aff;
+    }
+    
+    .cancel-btn {
+        flex: 1;
+        padding: 14px;
+        background-color: #f0e009ff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .cancel-btn:hover {
+        background-color: #e0de54ff;
+    }
+    
+    .errorlist {
+        list-style: none;
+        padding: 0;
+        margin: 10px 0;
+    }
+    
+    .errorlist li {
+        color: #e74c3c;
+        background: #fadbd8;
+        padding: 10px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        font-size: 14px;
+    }
+</style>
+{% endblock %}
